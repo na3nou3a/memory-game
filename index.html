@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Memory Game</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="btn-groupe">
+        <button type="button" class="btn size-btn active" aria-label="change grid size">16</button>
+        <button type="button" class="btn size-btn" aria-label="change grid size">36</button>
+        <button type="button" class="btn size-btn" aria-label="change grid size">64</button>
+      </div>
+      <div class="playground"></div>
+      <div class="modal">
+        <div class="modal-content">
+          <h2 class="modal-heading">Game Over</h2>
+          <p class="modal-text modal-time">Time Spent:</p>
+          <p class="modal-text">wrong attempts: <span class="wrong">5</span></p>
+          <button class="btn modal-btn">Start Again</button>
+        </div>
+      </div>
+      <div class="features">
+        <div class="timer">
+          <p><span class="minutes">00</span>min</p>
+          <p><span class="seconds">00</span>sec</p>
+        </div>
+        <button class="btn restart-btn">New Game</button>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
