@@ -1,3 +1,11 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+
 :root {
   --white: #fff;
   --gray: #555;
@@ -12,7 +20,8 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -27,12 +36,17 @@ body {
   height: 100vh;
   max-width: 96rem;
   margin: 0 auto;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-rows: 1fr (-webkit-max-content)[3] 1fr;
+  -ms-grid-rows: 1fr (max-content)[3] 1fr;
+  grid-template-rows: 1fr repeat(3, -webkit-max-content) 1fr;
   grid-template-rows: 1fr repeat(3, max-content) 1fr;
   place-items: center;
 }
 .btn {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   padding: 0.5rem 1rem;
   background-color: var(--blue);
   border: none;
@@ -41,6 +55,8 @@ body {
   letter-spacing: 0.1rem;
   color: var(--white);
   cursor: pointer;
+  -webkit-transition: background-color var(--time) linear;
+  -o-transition: background-color var(--time) linear;
   transition: background-color var(--time) linear;
 }
 .btn:hover {
@@ -48,16 +64,30 @@ body {
 }
 /* ================FORM================== */
 .btn-groupe {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
   grid-row: 2/3;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .btn.size-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 2rem;
   height: 2rem;
   font-size: 1rem;
@@ -79,11 +109,14 @@ body {
 }
 /*====================== GAME ========================= */
 .playground {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
   grid-row: 3/4;
   background-color: #f7eedd;
   width: 90vmin;
   height: 90vmin;
   border-radius: var(--gap);
+  display: -ms-grid;
   display: grid;
   place-items: center;
   gap: var(--gap);
@@ -95,32 +128,58 @@ body {
   width: 100%;
   height: 100%;
   background-color: var(--white);
-  box-shadow: 0 0 0.3rem #eee;
+  -webkit-box-shadow: 0 0 0.3rem #eee;
+          box-shadow: 0 0 0.3rem #eee;
+  display: -ms-grid;
   display: grid;
   place-items: center;
-  perspective: 100rem;
-  transform: rotateY(180deg);
+  -webkit-perspective: 100rem;
+          perspective: 100rem;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-transition: -webkit-transform var(--time) var(--time) linear;
+  transition: -webkit-transform var(--time) var(--time) linear;
+  -o-transition: transform var(--time) var(--time) linear;
   transition: transform var(--time) var(--time) linear;
+  transition: transform var(--time) var(--time) linear, -webkit-transform var(--time) var(--time) linear;
   border-radius: inherit;
   cursor: pointer;
 }
 .card.clicked {
-  transform: rotateY(0);
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  -webkit-transition: -webkit-transform var(--time) linear;
+  transition: -webkit-transform var(--time) linear;
+  -o-transition: transform var(--time) linear;
   transition: transform var(--time) linear;
+  transition: transform var(--time) linear, -webkit-transform var(--time) linear;
   pointer-events: none;
 }
 .icon {
   width: 80%;
   height: 80%;
-  object-fit: scale-down;
-  transform: rotateY(180deg);
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform var(--time) var(--time) linear;
+  transition: -webkit-transform var(--time) var(--time) linear;
+  -o-transition: transform var(--time) var(--time) linear;
   transition: transform var(--time) var(--time) linear;
+  transition: transform var(--time) var(--time) linear, -webkit-transform var(--time) var(--time) linear;
 }
 .card.clicked .icon {
-  transform: rotateY(0);
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  -webkit-transition: -webkit-transform var(--time) linear;
+  transition: -webkit-transform var(--time) linear;
+  -o-transition: transform var(--time) linear;
   transition: transform var(--time) linear;
+  transition: transform var(--time) linear, -webkit-transform var(--time) linear;
 }
 /* ==========MODAL============ */
 .modal {
@@ -130,17 +189,29 @@ body {
   inset: 0;
   background-color: rgba(119, 118, 115, 0.604);
   place-items: center;
+  -webkit-transition: opacity 0.5s 1s linear;
+  -o-transition: opacity 0.5s 1s linear;
   transition: opacity 0.5s 1s linear;
 }
 .modal.active {
+  display: -ms-grid;
   display: grid;
   opacity: 1;
 }
 .modal-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   row-gap: var(--gap);
   width: 80vmin;
   height: 80vmin;
@@ -156,9 +227,15 @@ body {
   margin-bottom: var(--gap);
 }
 .modal-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  column-gap: var(--gap);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: var(--gap);
+     -moz-column-gap: var(--gap);
+          column-gap: var(--gap);
   font-size: 1.3rem;
   color: var(--gray);
 }
@@ -174,18 +251,34 @@ body {
 }
 /* ==============FEATURES================ */
 .features {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
   grid-row: 4/5;
   width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 3rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 3rem;
+     -moz-column-gap: 3rem;
+          column-gap: 3rem;
 }
 .timer {
   min-width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .timer p {
